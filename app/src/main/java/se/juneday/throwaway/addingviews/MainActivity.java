@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,12 +21,27 @@ public class MainActivity extends AppCompatActivity {
         Button b  = new Button(this);
         b.setText("Butoni");
         b.setOnClickListener(new OnClickListener() {
-                                 @Override
-                                 public void onClick(View view) {
-                                     ((Button) view).setText("Butoni clicked");
-                                 }
-                             });
+            @Override
+            public void onClick(View view) {
+                ((Button) view).setText("Butoni clicked (" + getResources().getInteger(R.integer.nr_buttons) + ")");
+            }
+        });
+        Button okButton  = new Button(this);
+        okButton.setText("Ok");
+        okButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                b.setText("Ok as well");
+            }
+        });
+
         layout.addView(b);
+        layout.addView(okButton);
+
+        LinearLayout buttonLayout = new LinearLayout(this);
+        TextView tv = new TextView(this);
+        tv.setText(R.string.info_text);
+        layout.addView(buttonLayout);
     }
 
     // Letting the class implement OnClickListener

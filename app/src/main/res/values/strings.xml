@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AddingViews</string>
+    <string name="info_text">Just some text</string>
 </resources>
